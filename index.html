@@ -91,12 +91,12 @@
 				}
 			}
 	</script>
-	
+
 </head>
 
 <body onload="loadGalleryContent()" oncontextmenu="return false;">
-	
-	
+
+
 	<div id="pc-layout">
 		<section id="banner">
 			<img onclick="toggleStart()" draggable="false" src="images/bannertext.png">
@@ -106,14 +106,14 @@
 			<div id="overlay-window">
 				<button onclick="toggleStart()" id="overlay-close">X</button>
 				<h1>Welcome</h1>
-				<div>					
+				<div>
 					<p>Thank you for taking the time to view my personal Website.
 					<br>This site is still in its early stages, but feel free to check it out and give feedback if you want.
 					<br>
 					<br>- Gabi Saru
 					</p>
 					<button onclick="startMain()" id="overlay-continue-button">Get Started</button>
-				</div>	
+				</div>
 			</div>
 		</div>
 
@@ -126,15 +126,26 @@
 						background-image: url('images/mobile-icons/app-gallery.png');
 				" class="pc-button"><p style="transform: translateY(36px);">Gallery</p></button>
 				<button onclick="openWindow('folder-win')" style="
-					background-image: url('images/mobile-icons/app-folder.png');
-				" class="pc-button"><p>My Projects</p></button>
+					background-image: url('images/mobile-icons/app-document.png');
+				" class="pc-button"><p>My Projects.txt</p></button>
 				<button onclick="openWindow('vihl-win')" style="
 						background-image: url('images/mobile-icons/app-vihltara.png');
 				" class="pc-button"><p>game-teaser.mp4</p></button>
+				<div id="pc-notes">
+				    <p>
+								<h1>Site Tasks</h1>
+								<ul>
+								    <li>Fix clicking issue</li>
+									<li>Add gallery viewer</li>
+									<li>Start menu</li>
+									<li>Games</li>
+								</ul>
+					</p>
+				</div>
 			</div>
 			<div id="taskbar">
 				<button style="
-					background: none; 
+					background: none;
 					background-image: url('images/logo.png');
 					background-size: contain;
 					background-repeat: no-repeat;
@@ -187,12 +198,28 @@
 				</div>
 			</div>
 			<div id="pc-window" class="folder-win">
-				<h1 id="drag-handle">My Projects</h1>
+				<h1 id="drag-handle">My Projects.txt - Text Viewer</h1>
 				<button id="pc-win-close" onclick="openWindow('folder-win')">
 					X
 				</button>
 				<div>
-					<p>This folder is empty</p>
+					<p>
+					    <h1>GVBI.len's Projects</h1>
+					    <a href="https://gvbi-len.artstation.com/">ArtStation</a> | <a href="https://github.com/gvbi-len">GitHub</a>
+	                    <h2>Godot Pocket Debugger | Mobile app, Godot Addon</h2>
+                        <br>• Built a mobile debugging tool enabling developers to monitor Godot project behaviour and capture logs on-device.
+                        <br>• Streamlined bug reporting workflows by enabling log sharing across distributed teams.
+                        <br>• Ensured consistent log access across Android platforms.
+                        <h2>Leonis Terraform | Godot Addon</h2>
+                        <br>• Developed a GDScript-based terrain generation tool supporting large-scale, performant world creation.
+                        <br>• Implemented dynamic Level of Detail (LOD) and real-time terrain editing capabilities.
+                        <h2>Leonis Framework | Toolkit, Godot Addons</h2>
+                        <br>• Created a collection of productivity addons and standalone tools to streamline game development workflows.
+                        <br>• Published as open-source contributions to the Godot developer community.
+                        <h2>TerraOS | Operating System</h2>
+                        <br>• Designed and built an OS-like simulation environment integrating generative world logic.
+                        <br>• Demonstrated systems thinking across UI design, procedural generation, and software architecture.
+					</p>
 				</div>
 			</div>
 
@@ -234,8 +261,8 @@
 						}
 					});
 				});
-				
-				
+
+
 			</script>
 		</div>
 	</div>
@@ -248,11 +275,11 @@
 		</div>
 		<section id="mobile-main-view">
 			<!-- Row 1 -->
-			<button class="app-icon" 
-			onclick="openApp('about', 'About Me')" 
+			<button class="app-icon"
+			onclick="openApp('about', 'About Me')"
 			id="mobile-about" style="
 			background-image: url('images/mobile-icons/m-about.png');"></button>
-			<button class="app-icon" 
+			<button class="app-icon"
 			onclick="openApp('gallery', 'Gallery')"
 			id="mobile-gallery" style="
 			background-image: url('images/mobile-icons/m-gallery.png');"></button>
@@ -260,14 +287,14 @@
 			onclick="openApp('projects', 'My Projects')"
 			id="mobile-projects" style="
 			background-image: url('images/mobile-icons/m-folder.png');"></button>
-			
+
 			<script>
 				function openApp(app, title){
 					var appTitle = document.getElementById("mobile-app-title");
 					var appPath = `mobile-content/${app}.html`;
 					var appWindow = document.getElementById("mobile-app-view");
 					var appContent = document.getElementById("mobile-app-content");
-					
+
 					document.getElementById("mobile-main-view").style.display = "none";
 					appContent.innerHTML = "Loading Application";
 					fetch(appPath).then(response => {
