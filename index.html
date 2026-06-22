@@ -1,342 +1,1284 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>GVBI.len's Site</title>
+        <link rel="icon" type="image/png" href="./images/icon.png" />
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <meta property="og:title" content="GVBI.len's Site" />
+        <meta
+            property="og:description"
+            content="Everything you need to know about GVBI.len and other stuff."
+        />
+        <meta property="og:image" content="images/startbanner.png" />
+        <meta property="og:url" content="https://gvbi-len.github.io" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body oncontextmenu="return false;">
+        <div id="login-screen">
+            <div id="login-shimmer"></div>
+            <div id="login-content">
+                <div id="login-user-card">
+                    <div id="login-avatar-ring">
+                        <img
+                            id="login-avatar"
+                            src="images/profile.png"
+                            draggable="false"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                    <h2 id="login-username">Gabi Saru</h2>
+                    <p id="login-hint">Click to sign in</p>
+                    <button id="login-btn" onclick="doLogin()">
+                        <span>▶</span>
+                    </button>
+                </div>
+                <div id="login-footer">
+                    <p id="login-clock-big">00:00</p>
+                    <p id="login-date-big"></p>
+                </div>
+            </div>
+        </div>
 
-<head>
-	<title>
-		GVBI.len's Site
-	</title>
-	<link rel="icon" type="image/png" href="./images/icon.png">
-	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-	<meta property="og:title" content="GVBI.len's Site"/>
-	<meta property="og:description" content="Everything you need to know about GVBI.len and other stuff."/>
-	<meta property="og:image" content="images/startbanner.png"/>
-	<meta property="og:url" content="https://gvbi-len.github.io"/>
-	<link rel="stylesheet" href="style.css">
+        <div id="pc-layout" style="display: none">
+            <section id="pc-main-view">
+                <div id="pc-icons">
+                    <button
+                        onclick="openWindow('about-win')"
+                        style="
+                            background-image: url(&quot;images/mobile-icons/app-about.png&quot;);
+                        "
+                        class="pc-button"
+                    >
+                        <p>About Me</p>
+                    </button>
+                    <button
+                        onclick="openWindow('gallery-win')"
+                        style="
+                            background-image: url(&quot;images/mobile-icons/app-gallery.png&quot;);
+                        "
+                        class="pc-button"
+                    >
+                        <p style="transform: translateY(36px)">Gallery</p>
+                    </button>
+                    <button
+                        onclick="openWindow('folder-win')"
+                        style="
+                            background-image: url(&quot;images/mobile-icons/app-document.png&quot;);
+                        "
+                        class="pc-button"
+                    >
+                        <p>My Projects.txt</p>
+                    </button>
+                    <button
+                        onclick="openWindow('vihl-win')"
+                        style="
+                            background-image: url(&quot;images/mobile-icons/app-vihltara.png&quot;);
+                        "
+                        class="pc-button"
+                    >
+                        <p>game-teaser.mp4</p>
+                    </button>
+                    <button
+                        onclick="openWindow('games-win')"
+                        style="
+                            background-image: url(&quot;images/mobile-icons/app-about.png&quot;);
+                        "
+                        class="pc-button"
+                    >
+                        <p>Games</p>
+                    </button>
+                </div>
+                <div id="taskbar">
+                    <button id="start-btn" onclick="toggleStartMenu()">
+                        <img
+                            src="images/logo.png"
+                            draggable="false"
+                            onerror="this.style.background = '#6c327b'"
+                        />
+                    </button>
+                    <div id="taskbar-windows"></div>
+                    <div id="task-time">
+                        <div>
+                            <p id="clock">00:00</p>
+                            <p id="taskbar-date"></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="start-menu">
+                    <div id="start-menu-header">
+                        <img
+                            src="images/profile.png"
+                            id="start-avatar"
+                            onerror="this.style.display = 'none'"
+                        />
+                        <span>Gabi Saru</span>
+                    </div>
+                    <div id="start-menu-body">
+                        <div id="start-menu-left">
+                            <button
+                                class="start-item"
+                                onclick="
+                                    openWindow('about-win');
+                                    toggleStartMenu();
+                                "
+                            >
+                                <img
+                                    src="images/mobile-icons/app-about.png"
+                                    onerror="this.style.display = 'none'"
+                                />About Me
+                            </button>
+                            <button
+                                class="start-item"
+                                onclick="
+                                    openWindow('gallery-win');
+                                    toggleStartMenu();
+                                "
+                            >
+                                <img
+                                    src="images/mobile-icons/app-gallery.png"
+                                    onerror="this.style.display = 'none'"
+                                />Gallery
+                            </button>
+                            <button
+                                class="start-item"
+                                onclick="
+                                    openWindow('folder-win');
+                                    toggleStartMenu();
+                                "
+                            >
+                                <img
+                                    src="images/mobile-icons/app-document.png"
+                                    onerror="this.style.display = 'none'"
+                                />My Projects
+                            </button>
+                            <button
+                                class="start-item"
+                                onclick="
+                                    openWindow('vihl-win');
+                                    toggleStartMenu();
+                                "
+                            >
+                                <img
+                                    src="images/mobile-icons/app-vihltara.png"
+                                    onerror="this.style.display = 'none'"
+                                />Game Teaser
+                            </button>
+                            <button
+                                class="start-item"
+                                onclick="
+                                    openWindow('games-win');
+                                    toggleStartMenu();
+                                "
+                            >
+                                <span style="font-size: 20px; margin-right: 8px"
+                                    >🎮</span
+                                >Games
+                            </button>
+                            <div class="start-divider"></div>
+                            <button
+                                class="start-item start-shutdown"
+                                onclick="shutdownToLogin()"
+                            >
+                                <span style="font-size: 16px; margin-right: 8px"
+                                    >⏻</span
+                                >Sign Out
+                            </button>
+                        </div>
+                        <div id="start-menu-right">
+                            <p class="start-right-label">📁 Documents</p>
+                            <p class="start-right-label">🎨 Gallery</p>
+                            <p
+                                class="start-right-label"
+                                onclick="
+                                    window.open('https://github.com/gvbi-len')
+                                "
+                            >
+                                🌐 GitHub
+                            </p>
+                            <div class="start-divider"></div>
+                            <p class="start-right-label">⚙️ Settings</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-	<script>
-		document.addEventListener("DOMContentLoaded", function(){
-			systemClock();
-		})
-
-		function systemClock(){
-			const clockElem = document.getElementById("clock");
-			const mobileClock = document.getElementById("mobile-clock");
-
-			const timeFormat = new Intl.DateTimeFormat("en-ZA", {
-				hour: "2-digit",
-				minute: "2-digit",
-				hour12: false,
-				timeZone: "Africa/Johannesburg",
-			});
-
-			function setTime(){
-				const now = new Date();
-				clockElem.textContent = timeFormat.format(now);
-				mobileClock.textContent = timeFormat.format(now);
-			}
-
-			setTime();
-			setInterval(setTime, 1000);
-		}
-
-		function toggleStart(){
-			var overlayWindow = document.getElementById("overlay");
-			if (overlayWindow.style.display === "none"){
-				overlayWindow.style.display = "flex";
-			}
-			else{
-				overlayWindow.style.display = "none";
-			}
-		}
-		function startMain(){
-			document.getElementById("overlay").style.display = "none";
-			document.getElementById("banner").style.display = "none";
-			document.getElementById("pc-main-view").style.display = "flex";
-		}
-		function openWindow(content){
-			var targetWindow = document.getElementsByClassName(content)[0];
-			if (targetWindow.style.display === "none"){
-				targetWindow.style.display = "block";
-			}
-			else{
-				targetWindow.style.display = "none";
-				targetWindow.style.boxShadow = "none";
-			}
-		}
-		function loadGalleryContent(){
-			var galleryParent = document.getElementById("gallery-content");
-			let count = 9;
-			for (let i = 0; i < count; i++){
-				var imageLocation = `images/gallery/${i}.png`;
-				var image = document.createElement("img");
-				image.src = imageLocation;
-				image.draggable = false;
-				image.style.margin = "5px";
-				galleryParent.appendChild(image);
-			}
-		}
-
-		function loadMobileGalleryContent(){
-				var galleryParent = document.getElementById("mobile-gallery-content");
-				let count = 9;
-				for (let i = 0; i < count; i++){
-					var imageLocation = `/images/gallery/${i}.png`;
-					var image = document.createElement("img");
-					image.src = imageLocation;
-					image.draggable = false;
-					image.style.margin = "5px";
-					galleryParent.appendChild(image);
-				}
-			}
-	</script>
-
-</head>
-
-<body onload="loadGalleryContent()" oncontextmenu="return false;">
-
-
-	<div id="pc-layout">
-		<section id="banner">
-			<img onclick="toggleStart()" draggable="false" src="images/bannertext.png">
-		</section>
-
-		<div id="overlay">
-			<div id="overlay-window">
-				<button onclick="toggleStart()" id="overlay-close">X</button>
-				<h1>Welcome</h1>
-				<div>
-					<p>Thank you for taking the time to view my personal Website.
-					<br>This site is still in its early stages, but feel free to check it out and give feedback if you want.
-					<br>
-					<br>- Gabi Saru
-					</p>
-					<button onclick="startMain()" id="overlay-continue-button">Get Started</button>
-				</div>
-			</div>
-		</div>
-
-		<section id="pc-main-view">
-			<div id="pc-icons">
-				<button onclick="openWindow('about-win')" style="
-						background-image: url('images/mobile-icons/app-about.png');
-					" class="pc-button"><p>About Me</p></button>
-				<button onclick="openWindow('gallery-win')" style="
-						background-image: url('images/mobile-icons/app-gallery.png');
-				" class="pc-button"><p style="transform: translateY(36px);">Gallery</p></button>
-				<button onclick="openWindow('folder-win')" style="
-					background-image: url('images/mobile-icons/app-document.png');
-				" class="pc-button"><p>My Projects.txt</p></button>
-				<button onclick="openWindow('vihl-win')" style="
-						background-image: url('images/mobile-icons/app-vihltara.png');
-				" class="pc-button"><p>game-teaser.mp4</p></button>
-				<div id="pc-notes">
-				    <p>
-								<h1>Site Tasks</h1>
-								<ul>
-								    <li>Fix clicking issue</li>
-									<li>Add gallery viewer</li>
-									<li>Start menu</li>
-									<li>Games</li>
-								</ul>
-					</p>
-				</div>
-			</div>
-			<div id="taskbar">
-				<button style="
-					background: none;
-					background-image: url('images/logo.png');
-					background-size: contain;
-					background-repeat: no-repeat;
-					" class="task-button"></button>
-
-				<div id="task-time">
-					<p id="clock" title="Current time in my area">
-						00:00
-					</p>
-				</div>
-			</div>
-		</section>
-
-		<div id="window-overlay">
-			<div id="pc-window" class="about-win">
-				<h1 id="drag-handle">About Me</h1>
-				<button id="pc-win-close" onclick="openWindow('about-win')">
-					X
-				</button>
-				<div>
-					<img src="images/profile.png">
-					<p>
-						<b>Name:</b> Gabi Saru
-					<br><b>Country:</b> South Africa
-					<br>
-					<br><b>Top Skills:</b>
-					<br><font style="font-size: 13px;">Game Dev | Graphic Design | Programming
-					<br><b>Programming Languages:</b> C#, Java, Python
-					</font>
-					<br>
-					<br><b>Email:</b> <a href="mailto:leothera.dev@gmail.com">leothera.dev@gmail.com</a>
-					</p>
-				</div>
-			</div>
-			<div onload="loadGalleryContent()" id="pc-window" class="gallery-win">
-				<h1 id="drag-handle">Gallery</h1>
-				<button id="pc-win-close" onclick="openWindow('gallery-win')">
-					X
-				</button>
-				<div id="gallery-content">
-					</div>
-			</div>
-			<div id="pc-window" class="vihl-win">
-				<h1 id="drag-handle">game-teaser.mp4 - Video Player</h1>
-				<button id="pc-win-close" onclick="openWindow('vihl-win')">
-					X
-				</button>
-				<div>
-					<video controls controlsList="play noplaybackrate novolume nofullscreen noremoteplayback nodownload" width="480px" height="270px" src="videos/game.mp4" muted>Unable to load video</video>
-				</div>
-			</div>
-			<div id="pc-window" class="folder-win">
-				<h1 id="drag-handle">My Projects.txt - Text Viewer</h1>
-				<button id="pc-win-close" onclick="openWindow('folder-win')">
-					X
-				</button>
-				<div>
-					<p>
-					    <h1>GVBI.len's Projects</h1>
-					    <a href="https://gvbi-len.artstation.com/">ArtStation</a> | <a href="https://github.com/gvbi-len">GitHub</a>
-	                    <h2>Godot Pocket Debugger | Mobile app, Godot Addon</h2>
-                        <br>• Built a mobile debugging tool enabling developers to monitor Godot project behaviour and capture logs on-device.
-                        <br>• Streamlined bug reporting workflows by enabling log sharing across distributed teams.
-                        <br>• Ensured consistent log access across Android platforms.
+            <div id="window-overlay">
+                <!-- ABOUT -->
+                <div class="pc-window about-win" style="display: none">
+                    <div class="win-titlebar" data-win="about-win">
+                        <div class="win-title-icon">👤</div>
+                        <span class="win-title-text">About Me</span>
+                        <div class="win-controls">
+                            <button
+                                class="win-btn win-min"
+                                onclick="minimizeWindow('about-win')"
+                            >
+                                ─
+                            </button>
+                            <button
+                                class="win-btn win-close"
+                                onclick="openWindow('about-win')"
+                            >
+                                ✕
+                            </button>
+                        </div>
+                    </div>
+                    <div class="win-body">
+                        <img
+                            src="images/profile.png"
+                            class="about-profile-img"
+                        />
+                        <p>
+                            <b>Name:</b> Gabi Saru<br /><b>Country:</b> South
+                            Africa<br /><br /><b>Top Skills:</b><br /><span
+                                style="font-size: 13px"
+                                >Game Dev | Graphic Design | Programming<br /><b
+                                    >Programming Languages:</b
+                                >
+                                C#, Java, Python</span
+                            ><br /><br /><b>Email:</b>
+                            <a href="mailto:leothera.dev@gmail.com"
+                                >leothera.dev@gmail.com</a
+                            >
+                        </p>
+                    </div>
+                </div>
+                <!-- GALLERY -->
+                <div class="pc-window gallery-win" style="display: none">
+                    <div class="win-titlebar" data-win="gallery-win">
+                        <div class="win-title-icon">🖼️</div>
+                        <span class="win-title-text">Gallery</span>
+                        <div class="win-controls">
+                            <button
+                                class="win-btn win-min"
+                                onclick="minimizeWindow('gallery-win')"
+                            >
+                                ─
+                            </button>
+                            <button
+                                class="win-btn win-close"
+                                onclick="openWindow('gallery-win')"
+                            >
+                                ✕
+                            </button>
+                        </div>
+                    </div>
+                    <div class="win-body" id="gallery-content"></div>
+                </div>
+                <!-- VIDEO -->
+                <div class="pc-window vihl-win" style="display: none">
+                    <div class="win-titlebar" data-win="vihl-win">
+                        <div class="win-title-icon">▶</div>
+                        <span class="win-title-text"
+                            >game-teaser.mp4 — Video Player</span
+                        >
+                        <div class="win-controls">
+                            <button
+                                class="win-btn win-min"
+                                onclick="minimizeWindow('vihl-win')"
+                            >
+                                ─
+                            </button>
+                            <button
+                                class="win-btn win-close"
+                                onclick="openWindow('vihl-win')"
+                            >
+                                ✕
+                            </button>
+                        </div>
+                    </div>
+                    <div class="win-body vihl-body">
+                        <video
+                            controls
+                            controlsList="play noplaybackrate novolume nofullscreen noremoteplayback nodownload"
+                            width="480"
+                            height="270"
+                            src="videos/game.mp4"
+                            muted
+                        >
+                            Unable to load video
+                        </video>
+                    </div>
+                </div>
+                <!-- PROJECTS -->
+                <div class="pc-window folder-win" style="display: none">
+                    <div class="win-titlebar" data-win="folder-win">
+                        <div class="win-title-icon">📄</div>
+                        <span class="win-title-text"
+                            >My Projects.txt — Text Viewer</span
+                        >
+                        <div class="win-controls">
+                            <button
+                                class="win-btn win-min"
+                                onclick="minimizeWindow('folder-win')"
+                            >
+                                ─
+                            </button>
+                            <button
+                                class="win-btn win-close"
+                                onclick="openWindow('folder-win')"
+                            >
+                                ✕
+                            </button>
+                        </div>
+                    </div>
+                    <div class="win-body folder-body">
+                        <h1>GVBI.len's Projects</h1>
+                        <a href="https://gvbi-len.artstation.com/"
+                            >ArtStation</a
+                        >
+                        | <a href="https://github.com/gvbi-len">GitHub</a>
+                        <h2>Godot Pocket Debugger | Mobile app, Godot Addon</h2>
+                        <p>
+                            • Built a mobile debugging tool enabling developers
+                            to monitor Godot project behaviour and capture logs
+                            on-device.
+                        </p>
+                        <p>
+                            • Streamlined bug reporting workflows by enabling
+                            log sharing across distributed teams.
+                        </p>
                         <h2>Leonis Terraform | Godot Addon</h2>
-                        <br>• Developed a GDScript-based terrain generation tool supporting large-scale, performant world creation.
-                        <br>• Implemented dynamic Level of Detail (LOD) and real-time terrain editing capabilities.
+                        <p>
+                            • Developed a GDScript-based terrain generation tool
+                            supporting large-scale, performant world creation.
+                        </p>
+                        <p>
+                            • Implemented dynamic Level of Detail (LOD) and
+                            real-time terrain editing capabilities.
+                        </p>
                         <h2>Leonis Framework | Toolkit, Godot Addons</h2>
-                        <br>• Created a collection of productivity addons and standalone tools to streamline game development workflows.
-                        <br>• Published as open-source contributions to the Godot developer community.
+                        <p>
+                            • Created a collection of productivity addons and
+                            standalone tools to streamline game development
+                            workflows.
+                        </p>
                         <h2>TerraOS | Operating System</h2>
-                        <br>• Designed and built an OS-like simulation environment integrating generative world logic.
-                        <br>• Demonstrated systems thinking across UI design, procedural generation, and software architecture.
-					</p>
-				</div>
-			</div>
+                        <p>
+                            • Designed and built an OS-like simulation
+                            environment integrating generative world logic.
+                        </p>
+                    </div>
+                </div>
+                <!-- GAMES -->
+                <div class="pc-window games-win" style="display: none">
+                    <div class="win-titlebar" data-win="games-win">
+                        <div class="win-title-icon">🎮</div>
+                        <span class="win-title-text">Games</span>
+                        <div class="win-controls">
+                            <button
+                                class="win-btn win-min"
+                                onclick="minimizeWindow('games-win')"
+                            >
+                                ─
+                            </button>
+                            <button
+                                class="win-btn win-close"
+                                onclick="openWindow('games-win')"
+                            >
+                                ✕
+                            </button>
+                        </div>
+                    </div>
+                    <div class="win-body games-body">
+                        <div id="games-list" class="games-list">
+                            <p
+                                style="
+                                    color: #aaa;
+                                    text-align: center;
+                                    margin-top: 40px;
+                                "
+                            >
+                                No games added yet.<br /><br />Games will be
+                                available soon!
+                            </p>
+                        </div>
+                        <div id="game-frame-area" style="display: none">
+                            <div
+                                style="
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 8px;
+                                    margin-bottom: 8px;
+                                "
+                            >
+                                <button
+                                    class="games-back-btn"
+                                    onclick="closeGame()"
+                                >
+                                    ← Back
+                                </button>
+                                <span
+                                    id="game-frame-title"
+                                    style="color: #fff; font-size: 14px"
+                                ></span>
+                            </div>
+                            <iframe
+                                id="game-iframe"
+                                src=""
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-			<script>
-				document.querySelectorAll('[id="pc-window"]').forEach((dragWin) => {
-					const dragHandle = dragWin.querySelector('#drag-handle');
-					let winDragging = false;
-					let xOffset = 0;
-					let yOffset = 0;
+        <div id="lightbox" onclick="closeLightbox()">
+            <button
+                id="lightbox-prev"
+                onclick="
+                    event.stopPropagation();
+                    lightboxNav(-1);
+                "
+            >
+                &#10094;
+            </button>
+            <div id="lightbox-inner" onclick="event.stopPropagation()">
+                <img id="lightbox-img" src="" draggable="false" />
+            </div>
+            <button
+                id="lightbox-next"
+                onclick="
+                    event.stopPropagation();
+                    lightboxNav(1);
+                "
+            >
+                &#10095;
+            </button>
+            <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+            <p id="lightbox-counter"></p>
+        </div>
 
-					dragHandle.addEventListener("mousedown", (e) => {
-						winDragging = true;
+        <div id="mobile-layout">
+            <!-- Status bar -->
+            <div id="m-statusbar">
+                <span id="m-clock">00:00</span>
+                <span class="m-status-icons">
+                    <span>●●●</span>
+                    <span>Gvb Net</span>
+                    <span id="m-bat">🔋100%</span>
+                </span>
+            </div>
 
-						document.querySelectorAll('[id="pc-window"]').forEach((win) => {
-						win.style.zIndex --;
-						win.style.boxShadow = "none";
-						});
+            <!-- Home screen -->
+            <div id="m-home">
+                <div id="m-pages-track">
+                    <!-- Page 1 -->
+                    <div class="m-page">
+                        <div class="m-icon-grid">
+                            <button class="m-icon" onclick="mOpenApp('about')">
+                                <div
+                                    class="m-icon-img"
+                                    style="
+                                        background-image: url(&quot;images/mobile-icons/m-about.png&quot;);
+                                        background-color: #6c327b;
+                                    "
+                                ></div>
+                                <span>About</span>
+                            </button>
+                            <button
+                                class="m-icon"
+                                onclick="mOpenApp('gallery')"
+                            >
+                                <div
+                                    class="m-icon-img"
+                                    style="
+                                        background-image: url(&quot;images/mobile-icons/m-gallery.png&quot;);
+                                        background-color: #2a6090;
+                                    "
+                                ></div>
+                                <span>Gallery</span>
+                            </button>
+                            <button
+                                class="m-icon"
+                                onclick="mOpenApp('projects')"
+                            >
+                                <div
+                                    class="m-icon-img"
+                                    style="
+                                        background-image: url(&quot;images/mobile-icons/m-folder.png&quot;);
+                                        background-color: #1a6b3a;
+                                    "
+                                ></div>
+                                <span>Projects</span>
+                            </button>
+                            <button class="m-icon" onclick="mOpenApp('vihl')">
+                                <div
+                                    class="m-icon-img"
+                                    style="
+                                        background-image: url(&quot;images/mobile-icons/app-vihltara.png&quot;);
+                                        background-color: #7a2020;
+                                    "
+                                ></div>
+                                <span>Teaser</span>
+                            </button>
+                            <button class="m-icon" onclick="mOpenApp('games')">
+                                <div
+                                    class="m-icon-img"
+                                    style="
+                                        font-size: 36px;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        background-color: #3a2060;
+                                    "
+                                >
+                                    🎮
+                                </div>
+                                <span>Games</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Page 2 — widgets -->
+                    <div class="m-page">
+                        <div class="m-widget-page">
+                            <div class="m-widget m-widget-clock">
+                                <span id="m-widget-time">00:00</span>
+                                <span id="m-widget-date"></span>
+                            </div>
+                            <div class="m-widget m-widget-links">
+                                <p class="m-widget-title">Quick Links</p>
+                                <a
+                                    href="https://github.com/gvbi-len"
+                                    target="_blank"
+                                    class="m-link-row"
+                                >
+                                    <span>GitHub</span><span>›</span>
+                                </a>
+                                <a
+                                    href="https://gvbi-len.artstation.com/"
+                                    target="_blank"
+                                    class="m-link-row"
+                                >
+                                    <span>ArtStation</span><span>›</span>
+                                </a>
+                                <a
+                                    href="http://discord.com/users/548392421696733184"
+                                    target="_blank"
+                                    class="m-link-row"
+                                >
+                                    <span>Discord</span><span>›</span>
+                                </a>
+                                <a
+                                    href="mailto:leothera.dev@gmail.com"
+                                    class="m-link-row"
+                                >
+                                    <span>Email</span><span>›</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-						dragWin.style.zIndex = 10;
-						dragWin.style.boxShadow = "0px 4px 8px #00000080";
-						const rect = dragWin.getBoundingClientRect();
-						xOffset = e.clientX - rect.left;
-						yOffset = e.clientY - rect.top;
-						document.body.style.userSelect = "none";
-					});
+                <!-- Page dots -->
+                <div id="m-dots">
+                    <span class="m-dot m-dot-active"></span>
+                    <span class="m-dot"></span>
+                </div>
 
-					document.addEventListener("mousemove", (e) => {
-						if (!winDragging) return;
+                <!-- Dock -->
+                <div id="m-dock">
+                    <button class="m-dock-icon" onclick="mOpenApp('about')">
+                        <div
+                            class="m-icon-img"
+                            style="
+                                background-image: url(&quot;images/mobile-icons/m-about.png&quot;);
+                                background-color: #6c327b;
+                            "
+                        ></div>
+                    </button>
+                    <button class="m-dock-icon" onclick="mOpenApp('gallery')">
+                        <div
+                            class="m-icon-img"
+                            style="
+                                background-image: url(&quot;images/mobile-icons/m-gallery.png&quot;);
+                                background-color: #2a6090;
+                            "
+                        ></div>
+                    </button>
+                    <button class="m-dock-icon" onclick="mOpenApp('projects')">
+                        <div
+                            class="m-icon-img"
+                            style="
+                                background-image: url(&quot;images/mobile-icons/m-folder.png&quot;);
+                                background-color: #1a6b3a;
+                            "
+                        ></div>
+                    </button>
+                </div>
+            </div>
 
-						dragWin.style.position = "fixed";
-						dragWin.style.left = `${e.clientX - xOffset}px`;
-						dragWin.style.top = `${e.clientY - yOffset}px`;
-					});
+            <!-- App container (slides in over home) -->
+            <div id="m-app-container">
+                <!-- ABOUT APP -->
+                <div class="m-app" id="m-app-about">
+                    <div class="m-appbar">
+                        <button class="m-back-btn" onclick="mCloseApp('about')">
+                            ‹
+                        </button>
+                        <span class="m-appbar-title">About Me</span>
+                    </div>
+                    <div class="m-app-body m-about-body">
+                        <div class="m-profile-hero">
+                            <img
+                                src="images/profile.png"
+                                class="m-profile-pic"
+                                onerror="this.style.background = '#6c327b'"
+                            />
+                            <h1 class="m-profile-name">Gabi Saru</h1>
+                            <p class="m-profile-subtitle">
+                                Game Dev · Designer · Programmer
+                            </p>
+                        </div>
+                        <div class="m-info-card">
+                            <div class="m-info-row">
+                                <span class="m-info-label">Location:</span
+                                ><span>South Africa</span>
+                            </div>
+                            <div class="m-info-row">
+                                <span class="m-info-label">Skills:</span
+                                ><span
+                                    >Game Dev, Graphic Design, Programming</span
+                                >
+                            </div>
+                            <div class="m-info-row">
+                                <span class="m-info-label">Languages:</span
+                                ><span
+                                    >C#, Gdscript, Java, JavaScript,
+                                    Python</span
+                                >
+                            </div>
+                        </div>
+                        <div class="m-section-title">Connect</div>
+                        <a
+                            href="http://discord.com/users/548392421696733184"
+                            target="_blank"
+                            class="m-contact-btn"
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #5865f2,
+                                    #404eed
+                                );
+                            "
+                        >
+                            Discord
+                        </a>
+                        <a
+                            href="mailto:leothera.dev@gmail.com"
+                            class="m-contact-btn"
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #c0392b,
+                                    #8e1010
+                                );
+                            "
+                        >
+                            Email
+                        </a>
+                        <a
+                            href="https://github.com/gvbi-len"
+                            target="_blank"
+                            class="m-contact-btn"
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #24292e,
+                                    #0d1117
+                                );
+                            "
+                        >
+                            GitHub
+                        </a>
+                        <a
+                            href="https://gvbi-len.artstation.com/"
+                            target="_blank"
+                            class="m-contact-btn"
+                            style="
+                                background: linear-gradient(
+                                    135deg,
+                                    #13aff0,
+                                    #0e7fb0
+                                );
+                            "
+                        >
+                            ArtStation
+                        </a>
+                    </div>
+                </div>
 
-					document.addEventListener("mouseup", (e)=>{
-						if (winDragging){
-							winDragging = false;
-							document.body.style.userSelect = "";
-						}
-					});
-				});
+                <!-- GALLERY APP -->
+                <div class="m-app" id="m-app-gallery">
+                    <div class="m-appbar">
+                        <button
+                            class="m-back-btn"
+                            onclick="mCloseApp('gallery')"
+                        >
+                            ‹
+                        </button>
+                        <span class="m-appbar-title">Gallery</span>
+                    </div>
+                    <div
+                        class="m-app-body m-gallery-body"
+                        id="m-gallery-grid"
+                    ></div>
+                </div>
 
+                <!-- PROJECTS APP -->
+                <div class="m-app" id="m-app-projects">
+                    <div class="m-appbar">
+                        <button
+                            class="m-back-btn"
+                            onclick="mCloseApp('projects')"
+                        >
+                            ‹
+                        </button>
+                        <span class="m-appbar-title">Projects</span>
+                    </div>
+                    <div class="m-app-body m-projects-body">
+                        <div class="m-section-title" style="margin-top: 0">
+                            Links
+                        </div>
+                        <div
+                            style="
+                                display: flex;
+                                gap: 10px;
+                                margin-bottom: 20px;
+                            "
+                        >
+                            <a
+                                href="https://gvbi-len.artstation.com/"
+                                target="_blank"
+                                class="m-pill-link"
+                                >ArtStation</a
+                            >
+                            <a
+                                href="https://github.com/gvbi-len"
+                                target="_blank"
+                                class="m-pill-link"
+                                >GitHub</a
+                            >
+                        </div>
+                        <div class="m-project-card">
+                            <div class="m-project-tag">
+                                Mobile App · Godot Addon
+                            </div>
+                            <h3 class="m-project-title">
+                                Godot Pocket Debugger
+                            </h3>
+                            <p class="m-project-desc">
+                                A mobile debugging tool for monitoring Godot
+                                project behaviour and capturing logs on-device.
+                                Enables log sharing across distributed teams.
+                            </p>
+                        </div>
+                        <div class="m-project-card">
+                            <div class="m-project-tag">Godot Addon</div>
+                            <h3 class="m-project-title">Leonis Terraform</h3>
+                            <p class="m-project-desc">
+                                GDScript-based terrain generation with dynamic
+                                LOD and real-time editing for large-scale world
+                                creation.
+                            </p>
+                        </div>
+                        <div class="m-project-card">
+                            <div class="m-project-tag">
+                                Toolkit · Open Source
+                            </div>
+                            <h3 class="m-project-title">Leonis Framework</h3>
+                            <p class="m-project-desc">
+                                A collection of productivity addons and
+                                standalone tools to streamline Godot game
+                                development workflows.
+                            </p>
+                        </div>
+                        <div class="m-project-card">
+                            <div class="m-project-tag">OS Simulation</div>
+                            <h3 class="m-project-title">TerraOS</h3>
+                            <p class="m-project-desc">
+                                An OS-like simulation environment with
+                                generative world logic, custom UI design, and
+                                procedural generation systems.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-			</script>
-		</div>
-	</div>
+                <!-- VIDEO APP -->
+                <div class="m-app" id="m-app-vihl">
+                    <div class="m-appbar">
+                        <button class="m-back-btn" onclick="mCloseApp('vihl')">
+                            ‹
+                        </button>
+                        <span class="m-appbar-title">Game Teaser</span>
+                    </div>
+                    <div class="m-app-body m-vihl-body">
+                        <video
+                            id="m-video"
+                            controls
+                            controlsList="nodownload noremoteplayback"
+                            src="videos/game.mp4"
+                            muted
+                            playsinline
+                        >
+                            Unable to load video
+                        </video>
+                        <p
+                            style="
+                                color: rgba(255, 255, 255, 0.5);
+                                font-size: 12px;
+                                text-align: center;
+                                margin-top: 12px;
+                            "
+                        >
+                            game-teaser.mp4
+                        </p>
+                    </div>
+                </div>
 
-	<div id="mobile-layout">
-		<div id="topbar">
-				<p id="mobile-clock">
-					00:00
-				</p>
-		</div>
-		<section id="mobile-main-view">
-			<!-- Row 1 -->
-			<button class="app-icon"
-			onclick="openApp('about', 'About Me')"
-			id="mobile-about" style="
-			background-image: url('images/mobile-icons/m-about.png');"></button>
-			<button class="app-icon"
-			onclick="openApp('gallery', 'Gallery')"
-			id="mobile-gallery" style="
-			background-image: url('images/mobile-icons/m-gallery.png');"></button>
-			<button class="app-icon"
-			onclick="openApp('projects', 'My Projects')"
-			id="mobile-projects" style="
-			background-image: url('images/mobile-icons/m-folder.png');"></button>
+                <!-- GAMES APP -->
+                <div class="m-app" id="m-app-games">
+                    <div class="m-appbar">
+                        <button class="m-back-btn" onclick="mCloseApp('games')">
+                            ‹
+                        </button>
+                        <span class="m-appbar-title">Games</span>
+                    </div>
+                    <div class="m-app-body m-games-body">
+                        <div id="m-games-list" class="m-games-list">
+                            <div class="m-empty-state">
+                                <span style="font-size: 48px">🎮</span>
+                                <p>No games yet</p>
+                                <p style="font-size: 11px; opacity: 0.6">
+                                    Games will be available soon!
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            id="m-game-frame-wrap"
+                            style="
+                                display: none;
+                                flex-direction: column;
+                                height: 100%;
+                            "
+                        >
+                            <div
+                                style="
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 8px;
+                                    padding: 8px;
+                                "
+                            >
+                                <button
+                                    class="m-games-back"
+                                    onclick="mCloseGame()"
+                                >
+                                    ← Back
+                                </button>
+                                <span
+                                    id="m-game-title"
+                                    style="color: #fff; font-size: 13px"
+                                ></span>
+                            </div>
+                            <iframe
+                                id="m-game-iframe"
+                                src=""
+                                allowfullscreen
+                                style="flex: 1; border: none"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-			<script>
-				function openApp(app, title){
-					var appTitle = document.getElementById("mobile-app-title");
-					var appPath = `mobile-content/${app}.html`;
-					var appWindow = document.getElementById("mobile-app-view");
-					var appContent = document.getElementById("mobile-app-content");
+        <script>
+            function systemClock() {
+                const tf = new Intl.DateTimeFormat("en-ZA", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: false,
+                    timeZone: "Africa/Johannesburg",
+                });
+                const df = new Intl.DateTimeFormat("en-ZA", {
+                    weekday: "short",
+                    month: "short",
+                    day: "numeric",
+                    timeZone: "Africa/Johannesburg",
+                });
+                function tick() {
+                    const now = new Date(),
+                        t = tf.format(now),
+                        d = df.format(now);
+                    [
+                        "clock",
+                        "login-clock-big",
+                        "m-clock",
+                        "m-widget-time",
+                    ].forEach((id) => {
+                        const e = document.getElementById(id);
+                        if (e) e.textContent = t;
+                    });
+                    ["taskbar-date", "login-date-big", "m-widget-date"].forEach(
+                        (id) => {
+                            const e = document.getElementById(id);
+                            if (e) e.textContent = d;
+                        },
+                    );
+                }
+                tick();
+                setInterval(tick, 1000);
+            }
+            document.addEventListener("DOMContentLoaded", () => {
+                systemClock();
+                loadGalleryContent();
+                loadGamesConfig();
+                initMobileSwipe();
+                initMobileGallery();
+            });
 
-					document.getElementById("mobile-main-view").style.display = "none";
-					appContent.innerHTML = "Loading Application";
-					fetch(appPath).then(response => {
-						if(!response.ok){
-							throw new Error("HTTP Error");
-						}
-						return response.text();
-					}).then(html => {
-						appContent.innerHTML = html;
-						if (app === "gallery"){
-							loadMobileGalleryContent();
-						}
-					}).catch(err =>{
-						appContent.innerHTML = "Unable to load application";
-						console.error("Fetch Error", err);
-					});
+            function doLogin() {
+                const ls = document.getElementById("login-screen");
+                const pc = document.getElementById("pc-layout");
+                ls.style.animation = "fade-out 0.6s forwards";
+                setTimeout(() => {
+                    ls.style.display = "none";
+                    pc.style.display = "block";
+                }, 600);
+            }
+            function shutdownToLogin() {
+                const ls = document.getElementById("login-screen");
+                document.getElementById("pc-layout").style.display = "none";
+                ls.style.display = "flex";
+                ls.style.animation = "fade-in 0.6s forwards";
+                toggleStartMenu(true);
+                document
+                    .querySelectorAll(".pc-window")
+                    .forEach((w) => (w.style.display = "none"));
+            }
 
-					appTitle.innerHTML = title;
-					appWindow.style.display = "flex";
-				}
-			</script>
-		</section>
-		<div id="mobile-app-view">
-			<div id="mobile-app-header">
-				<button id="mobile-app-back"
-				onclick="closeApp()">&LeftAngleBracket;</button>
-				<h1 id="mobile-app-title">Application</h1>
-			</div>
-			<div id="mobile-app-content">
-				<p>
-					Loading app...
-				</p>
-			</div>
-			<script>
-				function closeApp(){
-					document.getElementById("mobile-main-view").style.display = "flex";
-					document.getElementById("mobile-app-view").style.display = "none";
-				}
-			</script>
-		</div>
-		<!-- <footer id="mobile-footer">
-			<img draggable="false" src="images/logo.png">
-		</footer> -->
-	</div>
+            let topZ = 100;
+            function openWindow(cls) {
+                const win = document.querySelector("." + cls);
+                if (!win) return;
+                if (win.style.display !== "none") {
+                    win.style.display = "none";
+                    removeTaskbarItem(cls);
+                } else {
+                    win.style.display = "flex";
+                    win.style.flexDirection = "column";
+                    bringToFront(win);
+                    addTaskbarItem(
+                        cls,
+                        win.querySelector(".win-title-text")?.textContent ||
+                            cls,
+                    );
+                }
+            }
+            function bringToFront(win) {
+                topZ++;
+                win.style.zIndex = topZ;
+                document
+                    .querySelectorAll(".pc-window")
+                    .forEach((w) => w.classList.remove("win-active"));
+                win.classList.add("win-active");
+            }
+            function minimizeWindow(cls) {
+                const win = document.querySelector("." + cls);
+                if (win) win.style.display = "none";
+            }
+            function addTaskbarItem(cls, label) {
+                const c = document.getElementById("taskbar-windows");
+                if (document.getElementById("tb-" + cls)) return;
+                const btn = document.createElement("button");
+                btn.id = "tb-" + cls;
+                btn.className = "taskbar-window-btn";
+                btn.textContent =
+                    label.slice(0, 14) + (label.length > 14 ? "…" : "");
+                btn.onclick = () => {
+                    const w = document.querySelector("." + cls);
+                    if (!w) return;
+                    if (w.style.display === "none") {
+                        w.style.display = "flex";
+                        w.style.flexDirection = "column";
+                        bringToFront(w);
+                    } else bringToFront(w);
+                };
+                c.appendChild(btn);
+            }
+            function removeTaskbarItem(cls) {
+                const el = document.getElementById("tb-" + cls);
+                if (el) el.remove();
+            }
+            function initDraggable(win) {
+                const handle = win.querySelector(".win-titlebar");
+                if (!handle) return;
+                let drag = false,
+                    xOff = 0,
+                    yOff = 0;
+                handle.addEventListener("mousedown", (e) => {
+                    if (e.target.closest(".win-controls")) return;
+                    drag = true;
+                    bringToFront(win);
+                    const r = win.getBoundingClientRect();
+                    xOff = e.clientX - r.left;
+                    yOff = e.clientY - r.top;
+                    win.style.position = "fixed";
+                    document.body.style.userSelect = "none";
+                    e.preventDefault();
+                });
+                document.addEventListener("mousemove", (e) => {
+                    if (!drag) return;
+                    win.style.left = `${e.clientX - xOff}px`;
+                    win.style.top = `${e.clientY - yOff}px`;
+                });
+                document.addEventListener("mouseup", () => {
+                    if (drag) {
+                        drag = false;
+                        document.body.style.userSelect = "";
+                    }
+                });
+                win.addEventListener("mousedown", () => bringToFront(win));
+            }
+            document.addEventListener("DOMContentLoaded", () =>
+                document
+                    .querySelectorAll(".pc-window")
+                    .forEach((w) => initDraggable(w)),
+            );
+
+            let startOpen = false;
+            function toggleStartMenu(forceClose = false) {
+                const sm = document.getElementById("start-menu");
+                startOpen = forceClose ? false : !startOpen;
+                sm.style.display = startOpen ? "flex" : "none";
+            }
+            document.addEventListener("click", (e) => {
+                if (
+                    startOpen &&
+                    !e.target.closest("#start-menu") &&
+                    !e.target.closest("#start-btn")
+                )
+                    toggleStartMenu(true);
+            });
+
+            let galleryImages = [];
+            let lightboxIndex = 0;
+            function loadGalleryContent() {
+                const parent = document.getElementById("gallery-content");
+                if (!parent) return;
+                galleryImages = [];
+                for (let i = 0; i < 11; i++) {
+                    const src = `images/gallery/${i}.png`;
+                    galleryImages.push(src);
+                    const img = document.createElement("img");
+                    img.src = src;
+                    img.draggable = false;
+                    img.dataset.index = i;
+                    img.onclick = () => openLightbox(i);
+                    parent.appendChild(img);
+                }
+            }
+            function openLightbox(idx) {
+                lightboxIndex = idx;
+                document.getElementById("lightbox-img").src =
+                    galleryImages[idx];
+                document.getElementById("lightbox-counter").textContent =
+                    `${idx + 1} / ${galleryImages.length}`;
+                document.getElementById("lightbox").style.display = "flex";
+            }
+            function closeLightbox() {
+                document.getElementById("lightbox").style.display = "none";
+            }
+            function lightboxNav(dir) {
+                lightboxIndex =
+                    (lightboxIndex + dir + galleryImages.length) %
+                    galleryImages.length;
+                openLightbox(lightboxIndex);
+            }
+            document.addEventListener("keydown", (e) => {
+                const lb = document.getElementById("lightbox");
+                if (lb.style.display === "flex") {
+                    if (e.key === "ArrowLeft") lightboxNav(-1);
+                    if (e.key === "ArrowRight") lightboxNav(1);
+                    if (e.key === "Escape") closeLightbox();
+                }
+            });
+
+            const GAMES = [
+                // {title:"My Game", url:"games/mygame/index.html", icon:"🏃"},
+            ];
+            function loadGamesConfig() {
+                // PC games list
+                const list = document.getElementById("games-list");
+                if (list && GAMES.length > 0) {
+                    list.innerHTML = "";
+                    GAMES.forEach((g) => {
+                        const btn = document.createElement("button");
+                        btn.className = "game-entry";
+                        btn.innerHTML = `<span class="game-icon">${g.icon || "🎮"}</span><span class="game-label">${g.title}</span>`;
+                        btn.onclick = () => launchGame(g);
+                        list.appendChild(btn);
+                    });
+                }
+                // Mobile games list
+                const ml = document.getElementById("m-games-list");
+                if (ml && GAMES.length > 0) {
+                    ml.innerHTML = "";
+                    GAMES.forEach((g) => {
+                        const btn = document.createElement("button");
+                        btn.className = "m-game-entry";
+                        btn.innerHTML = `<span>${g.icon || "🎮"}</span><span>${g.title}</span>`;
+                        btn.onclick = () => mLaunchGame(g);
+                        ml.appendChild(btn);
+                    });
+                }
+            }
+            function launchGame(g) {
+                document.getElementById("games-list").style.display = "none";
+                document.getElementById("game-frame-area").style.display =
+                    "block";
+                document.getElementById("game-frame-title").textContent =
+                    g.title;
+                document.getElementById("game-iframe").src = g.url;
+            }
+            function closeGame() {
+                document.getElementById("game-iframe").src = "";
+                document.getElementById("game-frame-area").style.display =
+                    "none";
+                document.getElementById("games-list").style.display = "flex";
+            }
+            function mLaunchGame(g) {
+                document.getElementById("m-games-list").style.display = "none";
+                document.getElementById("m-game-frame-wrap").style.display =
+                    "flex";
+                document.getElementById("m-game-title").textContent = g.title;
+                document.getElementById("m-game-iframe").src = g.url;
+            }
+            function mCloseGame() {
+                document.getElementById("m-game-iframe").src = "";
+                document.getElementById("m-game-frame-wrap").style.display =
+                    "none";
+                document.getElementById("m-games-list").style.display = "flex";
+            }
+
+            let currentPage = 0;
+            const TOTAL_PAGES = 2;
+            function initMobileSwipe() {
+                const track = document.getElementById("m-pages-track");
+                if (!track) return;
+                let startX = 0,
+                    startY = 0,
+                    moved = false;
+                track.addEventListener(
+                    "touchstart",
+                    (e) => {
+                        startX = e.touches[0].clientX;
+                        startY = e.touches[0].clientY;
+                        moved = false;
+                    },
+                    { passive: true },
+                );
+                track.addEventListener(
+                    "touchmove",
+                    (e) => {
+                        moved = true;
+                    },
+                    { passive: true },
+                );
+                track.addEventListener(
+                    "touchend",
+                    (e) => {
+                        if (!moved) return;
+                        const dx = e.changedTouches[0].clientX - startX;
+                        const dy = e.changedTouches[0].clientY - startY;
+                        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+                            if (dx < 0 && currentPage < TOTAL_PAGES - 1)
+                                setPage(currentPage + 1);
+                            else if (dx > 0 && currentPage > 0)
+                                setPage(currentPage - 1);
+                        }
+                    },
+                    { passive: true },
+                );
+            }
+            function setPage(n) {
+                currentPage = n;
+                document.getElementById("m-pages-track").style.transform =
+                    `translateX(-${n * 100}vw)`;
+                document.querySelectorAll(".m-dot").forEach((d, i) => {
+                    d.classList.toggle("m-dot-active", i === n);
+                });
+            }
+
+            // ════════ MOBILE: APP OPEN/CLOSE ════════
+            function mOpenApp(name) {
+                const app = document.getElementById("m-app-" + name);
+                if (!app) return;
+                if (name === "gallery") initMobileGallery();
+                if (name === "vihl") {
+                    const v = document.getElementById("m-video");
+                    if (v) {
+                        v.load();
+                    }
+                }
+                document.getElementById("m-app-container").style.display =
+                    "block";
+                app.style.display = "flex";
+                app.style.animation =
+                    "m-slide-in 0.28s cubic-bezier(0.25,0.46,0.45,0.94) forwards";
+            }
+            function mCloseApp(name) {
+                const app = document.getElementById("m-app-" + name);
+                if (!app) return;
+                app.style.animation =
+                    "m-slide-out 0.24s cubic-bezier(0.55,0,1,0.45) forwards";
+                setTimeout(() => {
+                    app.style.display = "none";
+                    // hide container if no apps open
+                    const anyOpen = [
+                        ...document.querySelectorAll(".m-app"),
+                    ].some((a) => a.style.display === "flex");
+                    if (!anyOpen)
+                        document.getElementById(
+                            "m-app-container",
+                        ).style.display = "none";
+                    // pause video
+                    if (name === "vihl") {
+                        const v = document.getElementById("m-video");
+                        if (v) v.pause();
+                    }
+                }, 240);
+            }
+
+            // ════════ MOBILE: GALLERY ════════
+            let mGalleryLoaded = false;
+            let mGalleryImages = [];
+            function initMobileGallery() {
+                if (mGalleryLoaded) return;
+                mGalleryLoaded = true;
+                const grid = document.getElementById("m-gallery-grid");
+                if (!grid) return;
+                mGalleryImages = [];
+                for (let i = 0; i < 11; i++) {
+                    const src = `images/gallery/${i}.png`;
+                    mGalleryImages.push(src);
+                    const img = document.createElement("img");
+                    img.src = src;
+                    img.className = "m-gallery-thumb";
+                    img.draggable = false;
+                    img.onclick = () => openLightbox(i); // reuse PC lightbox
+                    grid.appendChild(img);
+                }
+                // share the same gallery images array
+                galleryImages = mGalleryImages;
+            }
+        </script>
+    </body>
 </html>
