@@ -22,7 +22,7 @@
             <div id="login-shimmer"></div>
             <div id="login-content">
                 <div id="login-user-card">
-                    <div id="login-avatar-ring">
+                    <div id="login-avatar-ring" onclick="doLogin()">
                         <img
                             id="login-avatar"
                             src="images/profile.png"
@@ -31,10 +31,6 @@
                         />
                     </div>
                     <h2 id="login-username">Gabi Saru</h2>
-                    <p id="login-hint">Click to sign in</p>
-                    <button id="login-btn" onclick="doLogin()">
-                        <span>▶</span>
-                    </button>
                 </div>
                 <div id="login-footer">
                     <p id="login-clock-big">00:00</p>
@@ -1113,6 +1109,7 @@
 
             const GAMES = [
                 // {title:"My Game", url:"games/mygame/index.html", icon:"🏃"},
+                {title:"Chin Reaction", url:"games/chin-reaction/index.html", icon:"CR"}
             ];
             function loadGamesConfig() {
                 // PC games list

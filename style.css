@@ -140,7 +140,7 @@ a {
 #login-avatar-ring {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
+    border-radius: 10px;
     background: rgba(255, 255, 255, 0.08);
     border: 3px solid rgba(180, 140, 255, 0.5);
     box-shadow:
@@ -148,14 +148,22 @@ a {
         0 0 30px rgba(140, 100, 220, 0.3);
     display: flex;
     align-items: center;
+    transition: all 0.2s;
     justify-content: center;
     overflow: hidden;
+}
+#login-avatar-ring:hover{
+    cursor: pointer;
+    transform: scale(1.08);
+}
+#login-avatar-ring:active{
+    transform: scale(0.96);
 }
 #login-avatar {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
 }
 #login-username {
     color: #fff;
