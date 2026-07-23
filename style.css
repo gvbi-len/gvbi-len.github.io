@@ -133,18 +133,34 @@ p{
 	body{
 		overflow-y: auto;
 	}
+	#card-pic{
+		margin-top: 20vh;
+		margin-bottom: 10px;
+		max-width: 280px;
+		max-height: 280px;
+	}
+	#card-text{
+		margin-top: 0;
+		transform: TranslateY(-120px);
+	}
 	#user-card{
 		flex-direction: column;
+		align-items: flex-start;
 		max-width: 80vw;
 		min-width: 80vw;
-		max-height: 90vh;
-		min-height: 80vh
+		min-height: 80vh;
+		margin-top: 50px;
+		max-height: unset;
 	}
 	#user-card h1{
-		font-size: 48px;
+		font-size: 38px;
 	}
 	#user-card a{
+		font-size: 12px;
 		font-weight: bold;
+	}
+	#user-card p{
+		line-height: 80px;
 	}
 }
 
