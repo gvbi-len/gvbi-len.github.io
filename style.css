@@ -94,6 +94,13 @@ p{
 	text-align: left;
 }
 
+.sprite{
+	max-width: 128px;
+	max-height: 128px;
+	image-rendering: pixelated;
+	filter: drop-shadow(2px 2px 0px var(--fg-main-shadow));
+}
+
 .image{
 	width: 100%;
 	image-rendering: pixelated;
