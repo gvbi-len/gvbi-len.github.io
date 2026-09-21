@@ -20,57 +20,81 @@
     <body oncontextmenu="return false;">
         <div id="container">
             <div id="content">
-                <img draggable="false" id="gb-pic" src="imgs/img_profile.png">
-                <div id="gb-text">
-                    <p>
-		    <h1>GVBI.len</h1>
-			<hr width="100%">
-			<font style="
-				font-size: 16px;
-			">3D Artist, Game Developer, Programmer</font>
-			<br><br><b>Location:</b> 
-			<br>South Africa, Earth
-			<br>
-			<br><b>Timezone:</b> 
-			<br>SAST
-			<br>
-			<br><b>Skills:</b>
-			<br>
-			<ul>
-				<li>3D Modeling and Animation</li>
-				<li>DevOps</li>
-				<li>Frontend Development</li>
-				<li>Game Development</li>
-				<li>Graphic Design</li>
-				<li>Software Development</li>
-				<li>UI/UX Development</li>
-				<li>Web Development</li>
-			</ul>
 
-			<br>
-			<hr width="100%">
-			<h2>Projects</h2>
-			<br>
-			<h3>Akorus</h3>
-			<img class="image" src="imgs/img_acf.png">
-			<b>3D, GAME, MOBILE, PC</b>
-			<br>
-			<br>AKORUS is a science fiction role-playing game that combines classic RPG mechanics with a retro PlayStation 1–inspired aesthetic. 
-			<br>	
-			<br>
-			<h3>Geothera</h3>
-			<img class="image" src="imgs/img_gtr.png">
-			<b>ADDON, SOFTWARE, LINUX, WINDOWS</b>
-			<br>
-			<br>Geothera is a free and open source terrain generation software made entirely in Godot.
-			<br>An addon for the game engine is also available for creating terrain cells from heightmap textures within the game engine.
-			<br>
-			<br>
-			<hr width="100%">
-			<br><a href="https://www.artstation.com/gvbi-len">ArtStation</a> <a href="mailto:leothera.dev@proton.me">e-Mail</a> <a href="https://github.com/gvbi-len">GitHub</a> <a href="https://gvbi-len.itch.io">itch.io</a> <a href="https://www.youtube.com/channel/UCherauPHlzCFnR3UYtiJlag">Development Archive</a>
-                    </p>
+                <header id="gb-header" class="start-only">
+                    <img draggable="false" id="gb-pic" src="imgs/img_profile.png" alt="GVBI.len" />
+                    <h1>GVBI.len</h1>
+                    <hr width="100%" />
+                    <p class="tagline">3D Artist, Game Developer, Programmer</p>
+                </header>
+
+                <hr width="100%" class="start-only" />
+
+                <div id="gb-screen">
+
+                    <nav id="gb-menu" aria-label="Site sections">
+                        <button type="button" class="gb-menu-item" data-target="home">HOME</button>
+                        <button type="button" class="gb-menu-item" data-target="profile">PROFILE</button>
+                        <button type="button" class="gb-menu-item" data-target="akorus">AKORUS</button>
+                        <button type="button" class="gb-menu-item" data-target="geothera">GEOTHERA</button>
+                        <button type="button" class="gb-menu-item" data-target="links">LINKS</button>
+                    </nav>
+
+                    <div id="gb-pages">
+
+                        <section id="page-profile" class="page" role="tabpanel">
+                            <div class="field">
+                                <b>Location:</b>
+                                <br />South Africa, Earth
+                            </div>
+                            <div class="field">
+                                <b>Timezone:</b>
+                                <br />SAST
+                            </div>
+                            <div class="field wide">
+                                <b>Skills:</b>
+                                <ul>
+                                    <li>3D Design</li>
+                                    <li>DevOps</li>
+                                    <li>Frontend</li>
+                                    <li>Game Dev</li>
+                                    <li>Graphic Design</li>
+                                    <li>UI/UX</li>
+                                    <li>Web</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section id="page-akorus" class="page project" role="tabpanel">
+                            <h3>Akorus</h3>
+                            <img class="image" src="imgs/img_acf.png" alt="Akorus" />
+                            <b>3D, GAME, MOBILE, PC</b>
+                            <div class="desc">AKORUS is a science fiction role-playing game that combines classic RPG mechanics with a retro PlayStation 1–inspired aesthetic.</div>
+                        </section>
+
+                        <section id="page-geothera" class="page project" role="tabpanel">
+                            <h3>Geothera</h3>
+                            <img class="image" src="imgs/img_gtr.png" alt="Geothera" />
+                            <b>ADDON, SOFTWARE, LINUX, WINDOWS</b>
+                            <div class="desc">Geothera is a free and open source terrain generation software made entirely in Godot. An addon for the game engine is also available for creating terrain cells from heightmap textures within the game engine.</div>
+                        </section>
+
+                        <section id="page-links" class="page" role="tabpanel">
+                            <div id="gb-links">
+								<ul id="links-list">
+									<li><a href="https://www.artstation.com/gvbi-len">ArtStation</a></li>
+									<li><a href="mailto:leothera.dev@proton.me">e-Mail</a></li>
+									<li><a href="https://github.com/gvbi-len">GitHub</a></li>
+									<li><a href="https://gvbi-len.itch.io">itch.io</a></li>
+									<li><a href="https://www.youtube.com/channel/UCherauPHlzCFnR3UYtiJlag">YouTube</a></li>
+								</ul>
+                            </div>
+                        </section>
+
+                    </div>
                 </div>
             </div>
         </div>
+        <script src="script.js"></script>
     </body>
 </html>
