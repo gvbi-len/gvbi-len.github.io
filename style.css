@@ -217,7 +217,6 @@ li{
 
 #page-profile.active{
 	display: grid;
-	grid-template-columns: 1fr 1fr;
 	gap: 16px 24px;
 	align-content: start;
 }
@@ -226,10 +225,6 @@ li{
 	grid-column: 1 / -1;
 }
 
-#page-profile ul{
-	column-count: 2;
-	column-gap: 24px;
-}
 
 .page.project.active{
 	display: flex;
@@ -292,14 +287,31 @@ li{
 		gap: 12px;
 	}
 	#gb-menu{
-		flex-direction: row;
+		flex-direction: column;
 		flex-wrap: wrap;
 		flex-basis: auto;
 		width: 100%;
 		justify-content: center;
+		border-bottom: 2px solid var(--border-colour);
+		padding-bottom: 16px;
 	}
 	#gb-pages{
 		flex: 1 1 0;
+	}
+	.project, .desc{
+		font-size: 14px;
+	}
+	.project b{
+		border-bottom: 2px solid var(--border-colour);
+	}
+	.project h3{
+		text-align: left;
+		font-size: 24px;
+		padding-left: 0;
+		border-bottom: 2px solid var(--border-colour);
+	}
+	.image{
+	display: none;
 	}
 	.project .image{
 		padding: 0;
