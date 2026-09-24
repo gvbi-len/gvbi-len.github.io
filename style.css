@@ -30,6 +30,11 @@ a{
 a:hover{
 	color: var(--link-highlight);
 	background-color: var(--link-bg);
+	cursor: url('imgs/img_cursor_pointer.png'), auto;
+}
+
+button:hover{
+	cursor: url('imgs/img_cursor_pointer.png'), auto;
 }
 
 b{
@@ -47,7 +52,8 @@ body{
     user-select: none;
     color: var(--font-main);
     font-family: "font main";
-    overflow: hidden; 
+    overflow: hidden;
+    cursor: url('imgs/img_cursor_default.png'), auto;
 }
 
 h1, h2, h3, h4, h5, h6{
