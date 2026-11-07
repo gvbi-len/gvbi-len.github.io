@@ -1,346 +1,172 @@
 :root{
-    --bg-main: #CADC9F;
-    --fg-main: #306230;
-    --fg-light: #CADC9F;
-    --fg-main-shadow: #0F380F;
-    --font-main: #306230;
-    --font-header: #0F380F;
-    --font-bold: #0F380F;
-    --link-bg: #0F380F;
-    --link-colour: #0F380F;
-    --link-highlight: #CADC9F;
-    --border-colour: #306230;
-    --border-shadow: #00000080;
+    --bg-main: #000000;
+	--page-main: #00000030;
+    --fg-main: #000000;
+	--accent-main: #eddbad;
+    --fg-main-shadow: #00000030;
+	--fg-light-shadow: #ffffff;
+    --font-main: #eddbad;
+    --font-header: #eddbad;
+    --font-bold: #eddbad;
+    --link-colour: #000000;
+    --link-highlight: #eddbad;
+    --border-colour: #eddbad;
+    --border-shadow: #00000050;
+	--border-radius: 15px;
 }
 
 html {
-  scrollbar-color: #0F380F #00000000;
+  scrollbar-color: var(--accent-main) #00000000;
   scrollbar-width: auto;
 }
 
-
 a{
-    text-decoration: none;
-    text-align: center;
-    color: var(--link-colour);
-    background: var(--bg-main);
-    padding: 0px 8px;
+	border: 2px solid var(--accent-main);
+	color: var(--accent-main);
+	min-width: 80px;
+	padding: 0px 10px;
+	text-transform: uppercase;
+	text-decoration: none;
+	margin: 10px 0;
 }
 
 a:hover{
-	color: var(--link-highlight);
-	background-color: var(--link-bg);
-	cursor: url('imgs/img_cursor_pointer.png'), auto;
+	background-color: var(--accent-main);
+	color: var(--fg-main);
 }
 
-button:hover{
-	cursor: url('imgs/img_cursor_pointer.png'), auto;
-}
-
-b{
-	color: var(--font-bold);
-}
 
 body{
-    background: #000000;
+    background-image: url('imgs/img_bg.png');
+	background-size: cover;
+	background-repeat: no-repeat;
     display: flex;
-    align-items: center;
-    justify-content: center;
+	justify-content: center;
+	align-items: center;
     text-align: center;
     height: 100vh;
     max-height: 100vh;
     user-select: none;
     color: var(--font-main);
     font-family: "font main";
-    overflow: hidden;
-    cursor: url('imgs/img_cursor_default.png'), auto;
-}
-
-h1, h2, h3, h4, h5, h6{
-	color: var(--font-header);
-	text-align: center;
-    padding-left: 40px;
-    margin: 0;
-}
-
-hr{
-	color: var(--border-colour);
-	border: 1px solid var(--border-colour);
-}
-
-p{
-	font-size: 24px;
-    padding-left: 30px;
-}
-
-li{
-	list-style: "~";
-}
-
-# links-list li{
-	list-style: none;
-}
-
-#container{
-	background: var(--bg-main);	
-	padding: 50px;
-	min-width: 50vw;
-	max-width: 50vw;
-	max-height: 75vh;
-	height: 75vh;
 	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-	box-shadow: inset 5px 5px 10px var(--border-shadow),
-	inset -5px -5px 10px var(--border-shadow);
 }
 
-#content{
-	flex: 1;
-	min-height: 0;
-	display: flex;
-	flex-direction: column;
-	animation: load-site 4s steps(10, end) both;
-}
-
-#content:not(.started){
-	justify-content: center;
-}
-
-#content.started .start-only{
-	display: none;
-}
-
-#content:not(.started) #gb-pages,
-#content:not(.started) .gb-menu-item[data-target="home"]{
-	display: none;
-}
-
-#gb-header{
-	text-align: center;
-}
-
-#gb-pic{
-	width: clamp(96px, 28vh, 256px);
-	height: auto;
-	border-radius: 100%;
-	image-rendering: pixelated;
-	border: 3px solid var(--border-colour);
-}
-
-.tagline{
-	font-size: 16px;
-	padding-left: 0;
-}
-
-#gb-screen{
-	display: flex;
-	align-items: stretch;
-	gap: 28px;
-	margin-top: 16px;
-	text-align: left;
-	min-height: 0;
-}
-
-#content:not(.started) #gb-screen{
-	justify-content: center;
-}
-
-#content.started #gb-screen{
-	flex: 1;
-	margin-top: 0;
-}
-
-#gb-menu{
-	flex: 0 0 150px;
-	display: flex;
-	flex-direction: column;
-	gap: 6px;
-}
-
-.gb-menu-item{
-	all: unset;
-	display: block;
-	cursor: pointer;
-	font-family: inherit;
-	font-size: 20px;
-	color: var(--font-main);
-	padding: 4px 8px 4px 24px;
-	position: relative;
-}
-
-.gb-menu-item::before{
-	content: "~";
-	position: absolute;
-	left: 6px;
-	opacity: 0;
-}
-
-.gb-menu-item.active{
+h1{
 	color: var(--font-header);
+	font-family: "font header";
+	font-size: 48px;
+	width: 100%;
+	height: 50px;
+	margin: 0;
+	margin-top: 100px;
+	padding: 10px 0;
+	border-bottom: 2px solid var(--border-colour);
+	text-shadow: 0px 0px 5px var(--border-colour);
 }
 
-.gb-menu-item.active::before{
-	opacity: 1;
+h2{
+	text-transform: uppercase;
 }
 
-.gb-menu-item:hover,
-.gb-menu-item:focus-visible{
-	color: var(--link-highlight);
-	background-color: var(--link-bg);
-	outline: none;
+h3{
+	align-self: center;
+	text-transform: uppercase;
+	border-bottom: 1px solid var(--accent-main);
+	width: 60%;
 }
 
-#gb-pages{
-	flex: 1;
-	min-width: 0;
-	min-height: 0;
-	font-size: 20px;
+table{
+	margin: 30px auto;
+	width: 90%;
 }
 
-#gb-pages ul{
-	padding-left: 24px;
-	margin: 4px 0;
+tr:nth-child(even){
+	background-color: var(--accent-main);
+	color: var(--fg-main);
 }
 
-.page{
-	display: none;
+#avi{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 50vw;
+	user-select: none;
+	pointer-events: none;
 }
 
-.page.active{
-	display: block;
-	height: 100%;
-	min-height: 0;
-	overflow-y: auto;
-	animation: page-in 2s steps(10, end) both;
-}
-
-#page-profile.active{
-	display: grid;
-	gap: 16px 24px;
-	align-content: start;
-}
-
-#page-profile .wide{
-	grid-column: 1 / -1;
-}
-
-
-.page.project.active{
+#container-main{
+	transform: skew(15deg) translateX(-90px );
+	background-color: var(--page-main);
+	backdrop-filter: blur(15px);
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	font-size: 20px;
+	margin: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 80px;
+	width: 50vw;
+	height: 80vh;
+	border: 2px solid var(--border-colour);
+	box-shadow: 0px 0px 20px var(--border-colour),
+	inset 0px 0px 20px var(--border-colour);
+	overflow: scroll;
+	mask-image: linear-gradient(transparent, black, black, black, transparent);
 }
 
-.project .image{
-	flex: 1 1 0;
-	min-height: 60px;
-	width: 100%;
-	box-sizing: border-box;
-	object-fit: cover;
+#profile{
+	width: 40%;
+	margin: 30px auto;
+	mask-image: linear-gradient(black, black, transparent);
 }
 
-.project .desc{
-	font-size: 18px;
+.game-cover{
+	width: 60%;
+	margin: 10px auto;
 }
 
-#gb-links a{
-	display: inline-block;
-	margin: 4px 6px 4px 0;
-}
-
-.sprite{
-	max-width: 128px;
-	max-height: 128px;
-	image-rendering: pixelated;
-	filter: drop-shadow(2px 2px 0px var(--fg-main-shadow));
-}
-
-.image{
-	width: 100%;
-	image-rendering: pixelated;
-	padding: 3px;
-	background-color: var(--border-colour);
-	border: 3px solid var(--border-colour);
+.game-screenshot{
+	width: 80%;
+	margin: 10px auto;
 }
 
 @media (max-width: 900px){
-	body{
-		display: block;
-		height: 100dvh;
-		max-height: 100dvh;
-		overflow: hidden;
-		background: var(--bg-main);
-	}
-	#container{
-		box-sizing: border-box;
-		padding: 12px;
-		box-shadow: none;
-		min-width: unset;
+	#container-main{
+		transform: unset;
+		width: 100vw;
 		max-width: unset;
-		width: 100%;
-		height: 100dvh;
-		max-height: none;
-	}
-	#gb-screen{
-		flex-direction: column;
-		gap: 12px;
-	}
-	#gb-menu{
-		flex-direction: column;
-		flex-wrap: wrap;
-		flex-basis: auto;
-		width: 100%;
-		justify-content: center;
-		border-bottom: 2px solid var(--border-colour);
-		padding-bottom: 16px;
-	}
-	#gb-pages{
-		flex: 1 1 0;
-	}
-	.project, .desc{
-		font-size: 14px;
-	}
-	.project b{
-		border-bottom: 2px solid var(--border-colour);
-	}
-	.project h3{
-		text-align: left;
-		font-size: 24px;
-		padding-left: 0;
-		border-bottom: 2px solid var(--border-colour);
-	}
-	.image{
-	display: none;
-	}
-	.project .image{
+		min-width: unset;
+		height: 100vh;
+		font-size: unset;
 		padding: 0;
+		padding-bottom: 80px;
+		margin: 0;
 		border: none;
+		box-shadow: none;
+		overflow-x: hidden;
+	}
+
+	#avi{
+		display: none;
+	}
+
+	h3{
+		font-size: 12px;
 	}
 }
 
 @font-face{
 	font-family: "font main";
-	src: url("fonts/gb.ttf");
+	src: url("fonts/gb.otf");
 }
 
-@keyframes load-site{
-	0%{
-		opacity: 0%;
-	}
-	25%{
-		opacity: 0%;
-	}
-	100%{
-		opacity: 100%;
-	}
+@font-face {
+	font-family: "font header";
+	src: url("fonts/header.otf");
 }
 
-@keyframes page-in{
-	from{
-		opacity: 0;
-	}
-	to{
-		opacity: 1;
-	}
+@font-face {
+	font-family: "font h2";
+	src: url("fonts/header-2.ttf");
 }

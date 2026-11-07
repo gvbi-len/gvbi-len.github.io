@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-	<title>gvbi-len.gb</title>
+	<title>Site Viewer - /usr/share/gabis-stuff/gvbi.len</title>
         <link rel="icon" type="image/png" href="imgs/img_sticker.png" />
         <meta http-equiv="content-type" content="text/html;charset=utf-8" />
         <meta
@@ -18,80 +18,104 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body oncontextmenu="return false;">
-        <div id="container">
-            <div id="content">
+        <div id="container-main">
+            <h1>GVBI.len</h1>
+            <img draggable="false" id="profile" src="imgs/img_profile.png">
+            <hr width="80%">
+            <h2>Artist | Game Developer | Programmer</h2>
+            <p>
+                <a href="gvbi-len.artstation.com ">ArtStation</a> | <a href="mailto:leothera.dev@proton.me">Email</a> | <a href="https://github.com/gvbi-len">GitHub</a>
+            <br>
+            <table border="solid">
+                <tr>
+                    <th>Skill</th>
+                    <th>Sub Skill</th>
+                    <th>Skill Level</th>
+                </tr>
+                <tr>
+                    <td rowspan="5">Game Development</td>
+                    <td>2D/UI Design</td>
+                    <td>&star;&star;&star;&star;</td>
+                </tr>
+                <tr>
+                    <td>3D Design/Animation</td>
+                    <td>&star;&star;&star;&star;&star;</td>
+                </tr>
+                <tr>
+                    <td>Audio</td>
+                    <td>&star;&star;&star;&star;</td>
+                </tr>
+                <tr>
+                    <td>Level Design</td>
+                    <td>&star;&star;&star;&star;&star;</td>
+                </tr>
+                <tr>
+                    <td>Programming</td>
+                    <td>&star;&star;&star;&star;&star;</td>
+                </tr>
+                <tr>
+                    <td rowspan="5">Game Programming</td>
+                    <td>Assembly</td>
+                    <td>&star;&star;</td>
+                </tr>
+                <tr>
+                    <td>C#</td>
+                    <td>&star;&star;&star;</td>
+                </tr>
+                <tr>
+                    <td>GdScript</td>
+                    <td>&star;&star;&star;&star;&star;</td>
+                </tr>
+                <tr>
+                    <td>Java</td>
+                    <td>&star;&star;&star;</td>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td>&star;&star;&star;&star;&star;</td>
+                </tr>
+                <tr>
+                    <td rowspan="5">Software Development</td>
+                    <td>Assembly</td>
+                    <td>&star;&star;</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>&star;&star;</td>
+                </tr>
+                <tr>
+                    <td>C#</td>
+                    <td>&star;&star;&star;</td>
+                </tr>
+                <tr>
+                    <td>Java</td>
+                    <td>&star;&star;&star;</td>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td>&star;&star;&star;&star;</td>
+                </tr>
+            </table>
 
-                <header id="gb-header" class="start-only">
-                    <img draggable="false" id="gb-pic" src="imgs/img_profile.png" alt="GVBI.len" />
-                    <h1>GVBI.len</h1>
-                    <hr width="100%" />
-                    <p class="tagline">3D Artist, Game Developer, Programmer</p>
-                </header>
+            <h2>Projects</h2>
+            <h3>Akorus</h3>
+            <img draggable="false" class="game-cover" src="imgs/img_acf.png">
+            An old school role playing game inspired by Ultima and Phantasy Star Online.
+            <br>Akorus is set in an alternate Solar System in which Saturn's celestial bodies are home to the Akori, a unique race on a mission to recover long forgotten artifacts across the galaxy.
+            <br>A free demo will be available to play in 2027.
+            <img draggable="false" class="game-screenshot" src="imgs/img_acf_2.png">
 
-                <hr width="100%" class="start-only" />
+            <h3>Geothera</h3>
+            <img draggable="false" class="game-cover" src="imgs/img_gtr.png">    
+            Geothera is a 3D terrain generator.
+            <br>The projects consists of two formats: A Godot 4.x addon for creating terrain meshes directly in the game engine, and a standalone application for creating meshes and heightmap textures to use in compatible software.
+            <br>Both will be free to download soon.
+            <hr width="50%">
+            <br>
+            <h3>Website designed by yours truly :3
+        </p>
 
-                <div id="gb-screen">
-
-                    <nav id="gb-menu" aria-label="Site sections">
-                        <button type="button" class="gb-menu-item" data-target="home">HOME</button>
-                        <button type="button" class="gb-menu-item" data-target="profile">PROFILE</button>
-                        <button type="button" class="gb-menu-item" data-target="akorus">AKORUS</button>
-                        <button type="button" class="gb-menu-item" data-target="geothera">GEOTHERA</button>
-                        <button type="button" class="gb-menu-item" data-target="links">LINKS</button>
-                    </nav>
-
-                    <div id="gb-pages">
-
-                        <section id="page-profile" class="page" role="tabpanel">
-                            <div class="field">
-                                <b>Location:</b>
-                                <br />South Africa
-                            </div>
-                            <div class="field wide">
-                                <b>Skills:</b>
-                                <ul>
-                                    <li>3D Design</li>
-                                    <li>DevOps</li>
-                                    <li>Frontend</li>
-                                    <li>Game Dev</li>
-                                    <li>Graphic Design</li>
-                                    <li>UI/UX</li>
-                                    <li>Web</li>
-                                </ul>
-                            </div>
-                        </section>
-
-                        <section id="page-akorus" class="page project" role="tabpanel">
-                            <h3>Akorus</h3>
-                            <img class="image" src="imgs/img_acf.png" alt="Akorus" />
-                            <b>3D, GAME, MOBILE, PC</b>
-                            <div class="desc">AKORUS is a science fiction role-playing game set in an alternate solar system.</div>
-                        </section>
-
-                        <section id="page-geothera" class="page project" role="tabpanel">
-                            <h3>Geothera</h3>
-                            <img class="image" src="imgs/img_gtr.png" alt="Geothera" />
-                            <b>ADDON, SOFTWARE, PC</b>
-                            <div class="desc">Geothera is a free and open source terrain generation software made entirely in Godot. 
-				    <br><br>A Godot addon is also available for creating terrain cells from heightmap textures.</div>
-                        </section>
-
-                        <section id="page-links" class="page" role="tabpanel">
-                            <div id="gb-links">
-								<ul id="links-list">
-									<li><a href="https://www.artstation.com/gvbi-len">ArtStation</a></li>
-									<li><a href="mailto:leothera.dev@proton.me">e-Mail</a></li>
-									<li><a href="https://github.com/gvbi-len">GitHub</a></li>
-									<li><a href="https://gvbi-len.itch.io">itch.io</a></li>
-									<li><a href="https://www.youtube.com/@ltrs-gvbi-len">YouTube</a></li>
-								</ul>
-                            </div>
-                        </section>
-
-                    </div>
-                </div>
-            </div>
         </div>
-        <script src="script.js"></script>
+        <img id="avi" draggable="false" src="imgs/img_avi.gif">
     </body>
 </html>
